@@ -4,7 +4,7 @@ pipeline {
     agent any
     stage('checkout') {
       steps {
-    checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/eranmekler/webhook.git']]])
+    sudo checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/eranmekler/webhook.git']]])
     sudo echo 'success!'
       }
 
