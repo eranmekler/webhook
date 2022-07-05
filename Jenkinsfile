@@ -1,9 +1,11 @@
+properties([pipelineTriggers([githubPush()])])
+
 pipeline {
     agent any
     stage('checkout') {
-  steps {
-    // One or more steps need to be included within the steps block.
-  }
-}
+      steps {
+    checkout([$class: 'GitSCM', branches: [[name: '${BRANCH_NAME}']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/eranmekler/webhook.git']]])
+      }
+    }
 
 }
